@@ -37,7 +37,7 @@ class CionicViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            cionicRepository.fetchCionics()
+            cionicRepository.fetchCionics(FILTER_WITH)
                 .catch { throwable ->
                     // show error UI
                     if (isRefreshing) {
@@ -52,6 +52,10 @@ class CionicViewModel @Inject constructor(
                     _cionicUiState.update { CionicUiState.Success(cionicList) }
                 }
         }
+    }
+
+    companion object {
+        const val FILTER_WITH = "optio"
     }
 }
 

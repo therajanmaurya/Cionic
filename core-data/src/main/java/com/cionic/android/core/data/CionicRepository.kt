@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 interface CionicRepository {
 
-    fun fetchCionics(): Flow<List<Cionic>>
+    fun fetchCionics(filterWith: String): Flow<List<Cionic>>
 }
 
 class DefaultCionicRepository @Inject constructor(
@@ -18,11 +18,14 @@ class DefaultCionicRepository @Inject constructor(
     private val cionicNetworkDataSource: CionicNetworkDataSource
 ) : CionicRepository {
 
-    override fun fetchCionics(): Flow<List<Cionic>> {
+    override fun fetchCionics(filterWith: String): Flow<List<Cionic>> {
         return flow {
             val cionis = cionicNetworkDataSource.getCionics()
             cionicDao.insertAll(cionics = cionis.map { it.asEntity() })
-            return@flow emit(cionis)
+            return@flow emit(cionis.filter {
+                it.title.contains(filterWith)
+                        || it.body.contains(filterWith)
+            })
         }
     }
 }
