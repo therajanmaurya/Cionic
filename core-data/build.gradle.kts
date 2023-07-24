@@ -47,4 +47,10 @@ dependencies {
     // Local tests: jUnit, coroutines, Android runner
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
+
+    // Fuel
+    implementation(libs.fuel.core)
+    implementation(libs.fuel.android)
+    implementation(libs.retrofit.gson)
+    implementation(libs.fuel.coroutines)
 }

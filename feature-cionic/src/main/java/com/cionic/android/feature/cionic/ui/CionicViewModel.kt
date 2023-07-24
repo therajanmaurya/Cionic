@@ -37,7 +37,7 @@ class CionicViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            cionicRepository.fetchCionics(FILTER_WITH)
+            cionicRepository.fetchFuelCionics(FILTER_WITH)
                 .catch { throwable ->
                     // show error UI
                     if (isRefreshing) {
