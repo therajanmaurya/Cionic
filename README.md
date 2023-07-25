@@ -29,3 +29,11 @@ use the Fuel library (optional) or your favorite third party library to download
     implementation 'com.github.kittinunf.fuel:fuel-json:2.3.1'
 
 If you choose to further improve the user interface or use different 3rd party modules, please let us know why you made those changes.
+
+## Designs
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/therajanmaurya/Cionic/master/art/home.jpg"></td>
+    <td><img src="https://raw.githubusercontent.com/therajanmaurya/Cionic/master/art/dialog.jpg"></td>
+  </tr>
+</table>
