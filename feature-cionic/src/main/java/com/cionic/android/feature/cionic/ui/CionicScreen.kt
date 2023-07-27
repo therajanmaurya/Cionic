@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ExperimentalMaterialApi
@@ -112,11 +113,11 @@ internal fun CionicScreen(
                 contentPadding = PaddingValues(all = 4.dp),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
-                items(cionics) { cionic ->
+                itemsIndexed(cionics) { index, cionic ->
                     CionicListItem(
                         modifier = modifier,
                         cionic = cionic,
-                        background = if (cionic.id % 2 == 0) light_violet else light_orange,
+                        background = if (index % 2 == 0) light_violet else light_orange,
                         onItemClick = onItemClick
                     )
                 }
